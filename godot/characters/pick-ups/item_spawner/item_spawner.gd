@@ -4,7 +4,7 @@ extends Area2D
 @export var balas_escopeta: PackedScene
 @export var mates:PackedScene
 
-var spawn_area = Rect2(Vector2(100, 100), Vector2(1000, 1000))
+var spawn_area = Rect2(Vector2(100, 100), Vector2(1500, 1500))
 @export var spawn_interval: float = 2.0  # Intervalo entre cada aparición (en segundos)
 @export var max_objects: int = 8  # Número máximo de objetos en el área
 @onready var timer = $spawn_timer
@@ -61,7 +61,7 @@ func spawn_object_mate():
 		randf_range(spawn_area.position.y, spawn_area.position.y + spawn_area.size.y)
 	)	
 	# Instancia el objeto y lo coloca en la posición aleatoria
-	var new_object = balas_revolver.instantiate()
+	var new_object = mates.instantiate()
 	new_object.position = random_position
 	get_parent().add_child(new_object)  # Añadir el objeto a la escena
 	current_objects += 1

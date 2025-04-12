@@ -2,7 +2,7 @@ extends Node
 
 #var player
 var playerLife:int = 100
-var playerSpeed:float = 50.0
+var playerSpeed:float = 60.0
 var playerDmg:float = 5.0
 var balasDisponibles:int = 6 #a revisar
 var puntaje:int = 0
@@ -24,7 +24,7 @@ var escopeta_actual_ammo_held:int = 10
 
 #enemigos
 var enemigo_1_vida:int = 12
-var enemigo_1_speed:float = 60.0
+var enemigo_1_speed:float = 30.0
 var enemyDmg:int = 4
 
 var chancho_lata_vida:int = 40
@@ -32,10 +32,10 @@ var chanchoDmg:int = 35
 
 var luz_mala_dmg:int = 45
 var luz_mala_vida:int = 80
-var luz_mala_speed:float = 70
+var luz_mala_speed:float = 50
 
 var lobizon_dmg:int = 20
-var lobizon_speed:int = 50
+var lobizon_speed:int = 40
 var lobizon_vida:int = 50
 
 
