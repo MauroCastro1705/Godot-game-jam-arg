@@ -1,18 +1,23 @@
-[gd_scene load_steps=24 format=3 uid="uid://dsw4i7jsr1ank"]
+[gd_scene load_steps=29 format=3 uid="uid://dsw4i7jsr1ank"]
 
 [ext_resource type="Script" uid="uid://cio4jt3snka3a" path="res://characters/player.gd" id="1_dnjla"]
 [ext_resource type="PackedScene" uid="uid://cinqt7u3thb8x" path="res://characters/arma_1/proyectil_1.tscn" id="2_3eadt"]
 [ext_resource type="Script" uid="uid://x117siqlqcjd" path="res://characters/tipos_de_disparo.gd" id="2_tory2"]
 [ext_resource type="PackedScene" uid="uid://ijnuhkyu1p5v" path="res://characters/arma_2/proyectil_escopeta.tscn" id="4_x0jl3"]
 [ext_resource type="PackedScene" uid="uid://dmmsr1jg6ygje" path="res://characters/arma_2/escopeta.tscn" id="5_evndh"]
+[ext_resource type="AudioStream" uid="uid://23bx27vgkhvy" path="res://characters/arma_2/shotgunShot.wav" id="5_h076o"]
 [ext_resource type="Script" uid="uid://8b6nhkdm1grq" path="res://characters/HUD.gd" id="5_j31ep"]
 [ext_resource type="Script" uid="uid://c4q4oc5k2dwcr" path="res://characters/camera_2d.gd" id="6_6t23p"]
 [ext_resource type="Texture2D" uid="uid://dmxmsqw12qmic" path="res://assets/armas/BalaEscopeta1.png" id="6_eho78"]
 [ext_resource type="Theme" uid="uid://c4m6khe7g8laj" path="res://ui/textos.tres" id="6_eus45"]
 [ext_resource type="PackedScene" uid="uid://bnc8jhogm34ob" path="res://characters/arma_1/revolver.tscn" id="6_h1q25"]
+[ext_resource type="AudioStream" uid="uid://b5uk7nsp0k5uh" path="res://characters/arma_1/revolverShot.wav" id="6_lcfw7"]
 [ext_resource type="Theme" uid="uid://dkyewq7cvwqdd" path="res://barras_vida_theme.tres" id="6_vcag3"]
 [ext_resource type="Texture2D" uid="uid://ch4nkvhahqa1r" path="res://assets/armas/BalaRevolver.png" id="7_8sqrr"]
+[ext_resource type="AudioStream" uid="uid://dykrh1ev8ar5g" path="res://characters/arma_1/revolverReload.wav" id="7_ke0a4"]
+[ext_resource type="AudioStream" uid="uid://d32xarfukalja" path="res://characters/arma_2/shotgunReload.wav" id="8_41yun"]
 [ext_resource type="Texture2D" uid="uid://c2xst5wtkpsw0" path="res://assets/dash-icon.png" id="8_eho78"]
+[ext_resource type="AudioStream" uid="uid://e06v3ov245hc" path="res://characters/arma_1/weaponDryfire.wav" id="9_41yun"]
 [ext_resource type="Texture2D" uid="uid://pjtgmbjd2788" path="res://assets/armas/Escopeta.png" id="12_6rrl0"]
 [ext_resource type="Texture2D" uid="uid://bjxmwog5kbtud" path="res://assets/armas/RevolverTambor.png" id="13_eus45"]
 
@@ -117,6 +122,21 @@ text = "player"
 script = ExtResource("2_tory2")
 projectile_scene_1 = ExtResource("2_3eadt")
 projectile_scene_2 = ExtResource("4_x0jl3")
+
+[node name="shotgunShot" type="AudioStreamPlayer2D" parent="weapon"]
+stream = ExtResource("5_h076o")
+
+[node name="revolverShot" type="AudioStreamPlayer2D" parent="weapon"]
+stream = ExtResource("6_lcfw7")
+
+[node name="revolverReload" type="AudioStreamPlayer2D" parent="weapon"]
+stream = ExtResource("7_ke0a4")
+
+[node name="shotgunReload" type="AudioStreamPlayer2D" parent="weapon"]
+stream = ExtResource("8_41yun")
+
+[node name="weaponDryfire" type="AudioStreamPlayer2D" parent="weapon"]
+stream = ExtResource("9_41yun")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 layer = 8
