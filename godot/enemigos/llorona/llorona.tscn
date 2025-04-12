@@ -1,0 +1,29 @@
+[gd_scene load_steps=4 format=3 uid="uid://df7xd7tsndpwk"]
+
+[ext_resource type="Script" uid="uid://cyd0i8ouxo17h" path="res://enemigos/llorona/llorona.gd" id="1_gkxla"]
+[ext_resource type="Texture2D" uid="uid://f0bbe31b4kr6" path="res://enemigos/llorona/llorona.png" id="2_mt3xb"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bcai5"]
+size = Vector2(30, 44)
+
+[node name="Llorona" type="CharacterBody2D" groups=["enemigos"]]
+collision_layer = 2
+collision_mask = 13
+script = ExtResource("1_gkxla")
+
+[node name="ColorRect" type="Sprite2D" parent="." groups=["enemigos"]]
+scale = Vector2(0.15, 0.15)
+texture = ExtResource("2_mt3xb")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1, 4)
+shape = SubResource("RectangleShape2D_bcai5")
+
+[node name="Label" type="Label" parent="."]
+offset_left = -25.0
+offset_top = -45.0
+offset_right = 37.0
+offset_bottom = -22.0
+text = "Llorona"
+
+[connection signal="enemigo_muere" from="." to="." method="_on_enemigo_muere"]
