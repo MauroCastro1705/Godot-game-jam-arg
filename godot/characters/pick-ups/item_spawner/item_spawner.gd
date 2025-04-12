@@ -6,7 +6,7 @@ extends Area2D
 
 var spawn_area = Rect2(Vector2(100, 100), Vector2(1000, 1000))
 @export var spawn_interval: float = 2.0  # Intervalo entre cada aparición (en segundos)
-@export var max_objects: int = 5  # Número máximo de objetos en el área
+@export var max_objects: int = 8  # Número máximo de objetos en el área
 @onready var timer = $spawn_timer
 var current_objects: int = 0  # Contador de objetos actuales
 

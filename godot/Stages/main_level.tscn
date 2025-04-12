@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://bhafahdpnw8ah"]
+[gd_scene load_steps=12 format=3 uid="uid://bhafahdpnw8ah"]
 
 [ext_resource type="PackedScene" uid="uid://dsw4i7jsr1ank" path="res://characters/player.tscn" id="1_uia1v"]
 [ext_resource type="PackedScene" uid="uid://8fdqdt6nitfv" path="res://enemigos/enemy_1/enemigo_basico.tscn" id="2_c678c"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://bqikuv73psgo0" path="res://enemigos/lobizon/lobizon.tscn" id="5_5pv5t"]
 [ext_resource type="PackedScene" uid="uid://dyuqo18jfehoc" path="res://enemigos/luz_mala/luz_mala.tscn" id="6_qw25s"]
 [ext_resource type="PackedScene" uid="uid://cxmp3r010exox" path="res://characters/pick-ups/item_spawner/item_spawner.tscn" id="7_qw25s"]
+[ext_resource type="PackedScene" uid="uid://2beb73jmxwd" path="res://characters/pick-ups/mate.tscn" id="8_idl2b"]
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_h02h0"]
 polygon = PackedVector2Array(-221, 238, -220, 271, 15, 271, 14, 240)
@@ -81,4 +82,10 @@ position = Vector2(952, 168)
 position = Vector2(238, 772)
 
 [node name="ItemSpawner" parent="." instance=ExtResource("7_qw25s")]
-position = Vector2(-57, 102)
+position = Vector2(257, -92)
+
+[node name="ItemSpawner2" parent="." instance=ExtResource("7_qw25s")]
+position = Vector2(-918, 228)
+
+[node name="mate" parent="." instance=ExtResource("8_idl2b")]
+position = Vector2(201, 308)

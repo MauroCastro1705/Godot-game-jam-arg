@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://cxmp3r010exox"]
+[gd_scene load_steps=6 format=3 uid="uid://cxmp3r010exox"]
 
 [ext_resource type="Script" uid="uid://c33cw3irkdcbd" path="res://characters/pick-ups/item_spawner/item_spawner.gd" id="1_2xryo"]
 [ext_resource type="PackedScene" uid="uid://dka6o46g3f6bs" path="res://characters/pick-ups/balas/balas_revolver.tscn" id="2_bpya4"]
 [ext_resource type="PackedScene" uid="uid://cix3yh4nh6ml4" path="res://characters/pick-ups/balas/balas_escopeta.tscn" id="3_vwinj"]
+[ext_resource type="PackedScene" uid="uid://2beb73jmxwd" path="res://characters/pick-ups/mate.tscn" id="4_vwinj"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_flvfi"]
 radius = 245.351
@@ -11,6 +12,7 @@ radius = 245.351
 script = ExtResource("1_2xryo")
 balas_revolver = ExtResource("2_bpya4")
 balas_escopeta = ExtResource("3_vwinj")
+mates = ExtResource("4_vwinj")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(636, 355)

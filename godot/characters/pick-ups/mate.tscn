@@ -1,0 +1,39 @@
+[gd_scene load_steps=6 format=3 uid="uid://2beb73jmxwd"]
+
+[ext_resource type="Script" uid="uid://b7avke2u0fuxy" path="res://characters/pick-ups/mate.gd" id="1_cv02o"]
+[ext_resource type="Texture2D" uid="uid://baaalokbjnik5" path="res://assets/health-pack.png" id="2_cv02o"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_hm0pt"]
+radius = 24.0
+
+[sub_resource type="Gradient" id="Gradient_ex2fb"]
+offsets = PackedFloat32Array(0, 0.675325)
+colors = PackedColorArray(0.134856, 0.63754, 0.296601, 1, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_7mn1e"]
+gradient = SubResource("Gradient_ex2fb")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+
+[node name="mate" type="Area2D"]
+collision_layer = 16
+script = ExtResource("1_cv02o")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1, -2)
+shape = SubResource("CircleShape2D_hm0pt")
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+scale = Vector2(5, 5)
+energy = 3.0
+range_item_cull_mask = 9
+shadow_enabled = true
+shadow_item_cull_mask = 9
+texture = SubResource("GradientTexture2D_7mn1e")
+
+[node name="Health-pack" type="Sprite2D" parent="."]
+position = Vector2(-2, -5)
+scale = Vector2(0.686567, 0.686567)
+texture = ExtResource("2_cv02o")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
