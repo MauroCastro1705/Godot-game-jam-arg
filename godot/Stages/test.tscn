@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://cqiri1cddkju4" path="res://light/assets/14622749380557.560858d24a85e.png" id="1_in8a3"]
 [ext_resource type="PackedScene" uid="uid://dsw4i7jsr1ank" path="res://characters/player.tscn" id="2_f7aib"]
-[ext_resource type="PackedScene" uid="uid://8fdqdt6nitfv" path="res://enemigos/enemy_1/enemigo_basico.tscn" id="3_f7aib"]
+[ext_resource type="PackedScene" uid="uid://d32f265ddxdj3" path="res://enemigos/chancho_lata/chancho_lata.tscn" id="3_f7aib"]
 
 [node name="Node2D" type="Node2D"]
 
@@ -26,5 +26,5 @@ color = Color(0, 0, 0, 1)
 [node name="Player" parent="." instance=ExtResource("2_f7aib")]
 position = Vector2(0, -1)
 
-[node name="pombero" parent="." instance=ExtResource("3_f7aib")]
-position = Vector2(253, 81)
+[node name="ChanchoLata" parent="." instance=ExtResource("3_f7aib")]
+position = Vector2(311, 36)
