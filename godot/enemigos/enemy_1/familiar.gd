@@ -1,8 +1,8 @@
 extends CharacterBody2D
 @export var vida = Global.enemigo_1_vida
+@onready var vidaActual = vida
 @export var speed = Global.enemigo_1_speed
 @onready var dmg = Global.enemyDmg
-@onready var dmgTimer = %DmgTimer
 @onready var deathSound = $SoundDeath
 var player_ref: Node = null
 
@@ -19,9 +19,9 @@ func _physics_process(_delta):
 	move_and_slide()
 
 func take_damage(dmgDone):
-	vida -= dmgDone
+	vidaActual -= dmgDone
 	print("recibio daño")
-	if vida <= 0:
+	if vidaActual <= 0:
 		enemigo_muere.emit()
 		Global.efecto_muerte(self)
 		deathSound.play()
@@ -30,16 +30,10 @@ func _on_enemigo_muere() -> void:
 	Global.puntaje += 1
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
-	if body.is_in_group("player"):
-		player_ref = body
-		dmgTimer.start()
+	if body.has_method("take_damage_player"):
+		body.take_damage_player(dmg)
+		print("daño a player")
 
 
-func _on_area_dmg_player_body_exited(body: Node2D) -> void:
-		if body == player_ref:
-			dmgTimer.stop()
-			player_ref = null
 
-func _on_dmg_timer_timeout() -> void:
-		if player_ref and player_ref.has_method("take_damage_player"):
-			player_ref.take_damage_player(dmg)
+		

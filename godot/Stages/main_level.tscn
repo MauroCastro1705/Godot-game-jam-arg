@@ -1,7 +1,7 @@
-[gd_scene load_steps=17 format=3 uid="uid://bhafahdpnw8ah"]
+[gd_scene load_steps=16 format=3 uid="uid://bhafahdpnw8ah"]
 
 [ext_resource type="Texture2D" uid="uid://cirgmnagvqcx" path="res://Stages/pastoPng.png" id="1_h02h0"]
-[ext_resource type="Script" path="res://Stages/main_level.gd" id="1_m7fka"]
+[ext_resource type="Script" uid="uid://ccxqt8gby3api" path="res://Stages/main_level.gd" id="1_m7fka"]
 [ext_resource type="PackedScene" uid="uid://dsw4i7jsr1ank" path="res://characters/player.tscn" id="1_uia1v"]
 [ext_resource type="PackedScene" uid="uid://8fdqdt6nitfv" path="res://enemigos/enemy_1/enemigo_basico.tscn" id="2_c678c"]
 [ext_resource type="Texture2D" uid="uid://bxgu5denlftno" path="res://Stages/fondo.png" id="2_m7fka"]
@@ -28,12 +28,6 @@ colors = PackedColorArray(1, 1, 0.803922, 1, 0, 0, 0, 0)
 gradient = SubResource("Gradient_hlbhx")
 fill = 1
 fill_from = Vector2(0.5, 0.5)
-
-[sub_resource type="Curve2D" id="Curve2D_m7fka"]
-_data = {
-"points": PackedVector2Array(0, 0, 0, 0, -8472, -4950, 0, 0, 0, 0, -8971, 3784, 0, 0, 0, 0, -4518, 3707, 0, 0, 0, 0, 5483, 3841, 0, 0, 0, 0, 6289, -1533, 0, 0, 0, 0, 3813, -5161, 0, 0, 0, 0, -2291, -5506, 0, 0, 0, 0, -8472, -4950)
-}
-point_count = 8
 
 [node name="MainLevel" type="Node2D"]
 script = ExtResource("1_m7fka")
@@ -150,19 +144,6 @@ position = Vector2(257, -92)
 [node name="ItemSpawner2" parent="." instance=ExtResource("7_qw25s")]
 position = Vector2(-918, 228)
 
-[node name="Path2D" type="Path2D" parent="."]
-curve = SubResource("Curve2D_m7fka")
-
-[node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]
-position = Vector2(-8472, -4950)
-rotation = 1.62787
-
-[node name="enemigo_basico_timer" type="Timer" parent="."]
-wait_time = 8.0
-autostart = true
-
 [node name="music" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("10_inofj")
 autoplay = true
-
-[connection signal="timeout" from="enemigo_basico_timer" to="." method="_on_enemigo_basico_timer_timeout"]

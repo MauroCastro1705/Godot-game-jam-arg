@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://dsw4i7jsr1ank"]
+[gd_scene load_steps=33 format=3 uid="uid://dsw4i7jsr1ank"]
 
 [ext_resource type="Script" uid="uid://cio4jt3snka3a" path="res://characters/player.gd" id="1_dnjla"]
 [ext_resource type="PackedScene" uid="uid://cinqt7u3thb8x" path="res://characters/arma_1/proyectil_1.tscn" id="2_3eadt"]
@@ -20,6 +20,11 @@
 [ext_resource type="AudioStream" uid="uid://e06v3ov245hc" path="res://characters/arma_1/weaponDryfire.wav" id="9_41yun"]
 [ext_resource type="Texture2D" uid="uid://pjtgmbjd2788" path="res://assets/armas/Escopeta.png" id="12_6rrl0"]
 [ext_resource type="Texture2D" uid="uid://bjxmwog5kbtud" path="res://assets/armas/RevolverTambor.png" id="13_eus45"]
+[ext_resource type="Script" uid="uid://br16k570oagk" path="res://characters/spawner.gd" id="21_svrv0"]
+[ext_resource type="PackedScene" uid="uid://d32f265ddxdj3" path="res://enemigos/chancho_lata/chancho_lata.tscn" id="22_dx8gg"]
+[ext_resource type="PackedScene" uid="uid://8fdqdt6nitfv" path="res://enemigos/enemy_1/enemigo_basico.tscn" id="22_qp1es"]
+[ext_resource type="PackedScene" uid="uid://bqikuv73psgo0" path="res://enemigos/lobizon/lobizon.tscn" id="23_qp1es"]
+[ext_resource type="PackedScene" uid="uid://dyuqo18jfehoc" path="res://enemigos/luz_mala/luz_mala.tscn" id="24_qk7w8"]
 
 [sub_resource type="Gradient" id="Gradient_vcag3"]
 offsets = PackedFloat32Array(0, 0.675325)
@@ -45,6 +50,12 @@ radius = 28.0
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_eus45"]
 bg_color = Color(0.887659, 0.754752, 0.600094, 1)
+
+[sub_resource type="Curve2D" id="Curve2D_41yun"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -761, -403, 0, 0, 0, 0, -331, -459, 0, 0, 0, 0, 702, -421, 0, 0, 0, 0, 755, -104, 0, 0, 0, 0, 708, 536, 0, 0, 0, 0, -491, 495, 0, 0, 0, 0, -880, 316, 0, 0, 0, 0, -761, -403)
+}
+point_count = 8
 
 [node name="Player" type="CharacterBody2D" groups=["player"]]
 position = Vector2(640, 361)
@@ -244,3 +255,26 @@ offset_top = -421.0
 offset_right = 825.0
 offset_bottom = 461.0
 color = Color(0.0196078, 0.0196078, 0.0196078, 1)
+
+[node name="Node2D" type="Node2D" parent="."]
+script = ExtResource("21_svrv0")
+enemigo1 = ExtResource("22_qp1es")
+lobizon = ExtResource("23_qp1es")
+luzMala = ExtResource("24_qk7w8")
+chancho = ExtResource("22_dx8gg")
+
+[node name="Path2D" type="Path2D" parent="Node2D"]
+position = Vector2(16.5811, -10.3678)
+scale = Vector2(0.689297, 0.59397)
+curve = SubResource("Curve2D_41yun")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Node2D/Path2D"]
+position = Vector2(-761, -403)
+rotation = -0.129504
+
+[node name="enemigo_timer" type="Timer" parent="Node2D"]
+unique_name_in_owner = true
+wait_time = 10.0
+autostart = true
+
+[connection signal="timeout" from="Node2D/enemigo_timer" to="Node2D" method="_on_enemigo_timer_timeout"]

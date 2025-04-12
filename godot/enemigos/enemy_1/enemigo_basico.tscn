@@ -1,8 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://8fdqdt6nitfv"]
+[gd_scene load_steps=10 format=3 uid="uid://8fdqdt6nitfv"]
 
 [ext_resource type="Script" uid="uid://lie0ihgmpng2" path="res://enemigos/enemy_1/familiar.gd" id="1_y4n1f"]
 [ext_resource type="AudioStream" uid="uid://mdj77go4x1kg" path="res://SoundEffects/monster-death-grunt-131480.mp3" id="2_7njjy"]
 [ext_resource type="AudioStream" uid="uid://divnajthsrv7" path="res://SoundEffects/gruñido.mp3" id="3_s0irx"]
+[ext_resource type="Texture2D" uid="uid://b1mdq8ouhvuf8" path="res://assets/enemigos/pombero centro.png" id="4_0b3tc"]
+[ext_resource type="Texture2D" uid="uid://c4ualf70ta8u" path="res://assets/enemigos/pombero derecho.png" id="5_bq84o"]
+[ext_resource type="Texture2D" uid="uid://bfrbxbp78e4ig" path="res://assets/enemigos/pombero izquierdo.png" id="6_yf88u"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bcai5"]
 size = Vector2(34, 26)
@@ -10,28 +13,31 @@ size = Vector2(34, 26)
 [sub_resource type="CircleShape2D" id="CircleShape2D_y4n1f"]
 radius = 16.0
 
-[node name="familiar" type="CharacterBody2D" groups=["enemigos"]]
+[sub_resource type="SpriteFrames" id="SpriteFrames_uf5gs"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_0b3tc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_bq84o")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_yf88u")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="pombero" type="CharacterBody2D" groups=["enemigos"]]
 collision_layer = 2
 collision_mask = 13
 script = ExtResource("1_y4n1f")
 
-[node name="ColorRect" type="ColorRect" parent="." groups=["enemigos"]]
-offset_left = -15.0
-offset_top = -15.0
-offset_right = 19.0
-offset_bottom = 10.0
-color = Color(1, 0.113725, 1, 1)
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(2, -2)
 shape = SubResource("RectangleShape2D_bcai5")
-
-[node name="Label" type="Label" parent="."]
-offset_left = -25.0
-offset_top = -45.0
-offset_right = 37.0
-offset_bottom = -22.0
-text = "enemy1"
 
 [node name="area_dmg_player" type="Area2D" parent="."]
 collision_layer = 2
@@ -39,10 +45,6 @@ collision_layer = 2
 [node name="CollisionShape2D" type="CollisionShape2D" parent="area_dmg_player"]
 position = Vector2(2, -2)
 shape = SubResource("CircleShape2D_y4n1f")
-
-[node name="DmgTimer" type="Timer" parent="."]
-unique_name_in_owner = true
-wait_time = 0.8
 
 [node name="SoundDeath" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_7njjy")
@@ -52,7 +54,13 @@ stream = ExtResource("3_s0irx")
 volume_db = 18.057
 autoplay = true
 
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(3, -13)
+scale = Vector2(0.3, 0.3)
+sprite_frames = SubResource("SpriteFrames_uf5gs")
+autoplay = "default"
+frame = 1
+frame_progress = 0.554898
+
 [connection signal="enemigo_muere" from="." to="." method="_on_enemigo_muere"]
 [connection signal="body_entered" from="area_dmg_player" to="." method="_on_area_2d_body_entered"]
-[connection signal="body_exited" from="area_dmg_player" to="." method="_on_area_dmg_player_body_exited"]
-[connection signal="timeout" from="DmgTimer" to="." method="_on_dmg_timer_timeout"]
