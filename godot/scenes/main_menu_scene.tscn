@@ -73,9 +73,15 @@ layout_mode = 2
 size_flags_horizontal = 4
 theme_override_constants/margin_top = 10
 
-[node name="Label" type="Label" parent="UI/CenterContainer/VBoxContainer/Credits"]
+[node name="Label" type="Label" parent="UI/CenterContainer/VBoxContainer"]
 layout_mode = 2
-text = "credits"
+text = "creditos:
+Angie Agüero - Image Campus
+Daniel Ignacio Amieva - UTN - Mendoza
+Federico Moya - UM
+Laura Srur - Image Campus
+Mauro Castro UNSO
+"
 label_settings = SubResource("LabelSettings_2ikbh")
 horizontal_alignment = 1
 
