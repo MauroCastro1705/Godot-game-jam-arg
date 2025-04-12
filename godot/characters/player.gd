@@ -125,24 +125,30 @@ func shoot_current_weapon(direction: Vector2):
 			if current_revolver_ammo > 0:
 				weapon.shoot_pistola(posicion_pistola.global_position, direction, get_parent())
 				current_revolver_ammo -= 1
+				$weapon/revolverShot.play()
 				print("revolver - Balas cargador: ", current_revolver_ammo)
 			elif revolver_actual_ammo_held > 0:
 				print("Sin balas en el cargador. Recargando...")
 				start_reload_revolver()
+				$weapon/revolverReload.play()
 			else:
 				print("¡No quedan balas de revolver!")
+				$weapon/weaponDryfire.play()
 		1:  # Escopeta
 			if current_escopeta_ammo > 0:
 				weapon.shoot_escopeta(posicion_escopeta.global_position, direction, get_parent())
 				current_escopeta_ammo -= 1
 				aplicar_retroceso(direction, 85)
+				$weapon/shotgunShot.play()
 				$Camera2D.start_camera_shake(20.0)
 				print("escopeta - Balas cargador: ", current_escopeta_ammo)
 			elif escopeta_actual_ammo_held > 0:
 				print("Sin balas en el cargador. Recargando...")
 				start_reload_escopeta()
+				$weapon/shotgunReload.play()
 			else:
 				print("¡No quedan balas de escopeta!")
+				$weapon/weaponDryfire.play()
 	shootTimer.start()
 	update_ammo_display()
 
