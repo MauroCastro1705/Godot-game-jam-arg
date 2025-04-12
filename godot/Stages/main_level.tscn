@@ -1,7 +1,7 @@
-[gd_scene load_steps=16 format=3 uid="uid://bhafahdpnw8ah"]
+[gd_scene load_steps=17 format=3 uid="uid://bhafahdpnw8ah"]
 
 [ext_resource type="Texture2D" uid="uid://cirgmnagvqcx" path="res://Stages/pastoPng.png" id="1_h02h0"]
-[ext_resource type="Script" uid="uid://ccxqt8gby3api" path="res://Stages/main_level.gd" id="1_m7fka"]
+[ext_resource type="Script" path="res://Stages/main_level.gd" id="1_m7fka"]
 [ext_resource type="PackedScene" uid="uid://dsw4i7jsr1ank" path="res://characters/player.tscn" id="1_uia1v"]
 [ext_resource type="PackedScene" uid="uid://8fdqdt6nitfv" path="res://enemigos/enemy_1/enemigo_basico.tscn" id="2_c678c"]
 [ext_resource type="Texture2D" uid="uid://bxgu5denlftno" path="res://Stages/fondo.png" id="2_m7fka"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://bqikuv73psgo0" path="res://enemigos/lobizon/lobizon.tscn" id="5_5pv5t"]
 [ext_resource type="PackedScene" uid="uid://dyuqo18jfehoc" path="res://enemigos/luz_mala/luz_mala.tscn" id="6_qw25s"]
 [ext_resource type="PackedScene" uid="uid://cxmp3r010exox" path="res://characters/pick-ups/item_spawner/item_spawner.tscn" id="7_qw25s"]
+[ext_resource type="AudioStream" uid="uid://cmlfrfiiuvedr" path="res://music/mining-gold-on-16-psyche-140738.mp3" id="10_inofj"]
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_h02h0"]
 polygon = PackedVector2Array(150, 610, 150, 583, -182, 584, -182, -199, 30, -199, 46, -216, 47, -313, 713, -314, 714, -213, 729, -200, 945, -200, 948, 582, 614, 584, 614, 612, 946, 611, 947, 1047, 615, 1046, 600, 1061, 598, 1162, 471, 1164, 471, 1190, 609, 1192, 627, 1177, 629, 1073, 957, 1074, 973, 1059, 976, -213, 959, -226, 741, -230, 740, -330, 729, -340, 35, -343, 20, -329, 21, -228, -196, -228, -210, -214, -211, 351, -774, 351, -790, 367, -791, 943, -778, 960, -212, 961, -212, 1061, -196, 1074, 137, 1076, 137, 1173, 151, 1188, 294, 1188, 294, 1164, 162, 1161, 162, 1059, 148, 1048, -184, 1048, -184, 946, -200, 929, -763, 934, -763, 381, -211, 383, -212, 597, -199, 613)
@@ -159,5 +160,9 @@ rotation = 1.62787
 [node name="enemigo_basico_timer" type="Timer" parent="."]
 wait_time = 8.0
 autostart = true
+
+[node name="music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("10_inofj")
+autoplay = true
 
 [connection signal="timeout" from="enemigo_basico_timer" to="." method="_on_enemigo_basico_timer_timeout"]
