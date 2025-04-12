@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://2beb73jmxwd"]
+[gd_scene load_steps=7 format=3 uid="uid://2beb73jmxwd"]
 
 [ext_resource type="Script" uid="uid://b7avke2u0fuxy" path="res://characters/pick-ups/mate.gd" id="1_cv02o"]
 [ext_resource type="Texture2D" uid="uid://baaalokbjnik5" path="res://assets/health-pack.png" id="2_cv02o"]
+[ext_resource type="AudioStream" uid="uid://yy8s84pr8ip5" path="res://SoundEffects/mateSound.mp3" id="3_7hvvb"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_hm0pt"]
 radius = 24.0
@@ -35,5 +36,9 @@ texture = SubResource("GradientTexture2D_7mn1e")
 position = Vector2(-2, -5)
 scale = Vector2(0.686567, 0.686567)
 texture = ExtResource("2_cv02o")
+
+[node name="MateSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_7hvvb")
+volume_db = 3.748
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

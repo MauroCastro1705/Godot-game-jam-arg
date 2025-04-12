@@ -1,9 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://bqikuv73psgo0"]
+[gd_scene load_steps=9 format=3 uid="uid://bqikuv73psgo0"]
 
 [ext_resource type="Script" uid="uid://cshkgposckd53" path="res://enemigos/lobizon/lobizon.gd" id="1_hql7e"]
 [ext_resource type="Theme" uid="uid://wpbeyixe7qbn" path="res://ui/enemigos-texto.tres" id="2_8i4bd"]
 [ext_resource type="Texture2D" uid="uid://cjvjqwmaahurc" path="res://assets/el_familiar_concept_art.png" id="2_xcm0a"]
 [ext_resource type="Theme" uid="uid://dkyewq7cvwqdd" path="res://barras_vida_theme.tres" id="3_g3s01"]
+[ext_resource type="AudioStream" uid="uid://mdj77go4x1kg" path="res://SoundEffects/monster-death-grunt-131480.mp3" id="5_idvla"]
+[ext_resource type="AudioStream" uid="uid://c6jucmnv8arf" path="res://SoundEffects/wolf-howl-6310.mp3" id="6_g4sgs"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_xcm0a"]
 radius = 18.0
@@ -55,6 +57,14 @@ show_percentage = false
 
 [node name="Marker2D" type="Marker2D" parent="."]
 position = Vector2(50, 0)
+
+[node name="SoundDeath" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_idvla")
+
+[node name="sound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_g4sgs")
+volume_db = 10.895
+autoplay = true
 
 [connection signal="enemigo_muere" from="." to="." method="_on_enemigo_muere"]
 [connection signal="area_entered" from="ProyectilDetector" to="." method="_on_area_detection_area_entered"]

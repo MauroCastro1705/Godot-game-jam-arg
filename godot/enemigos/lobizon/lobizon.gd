@@ -14,6 +14,7 @@ extends CharacterBody2D
 @onready var sprite = $ElFamiliarConceptArt
 @onready var marker = $Marker2D
 @onready var col_shape = $CollisionShape2D
+@onready var deathSound = $SoundDeath
 
 
 var player
@@ -82,6 +83,7 @@ func take_damage(dmgDone):
 		print("Lobezno ha muerto!")
 		enemigo_muere.emit()
 		Global.efecto_muerte(self)
+		deathSound.play()
 				
 func _on_enemigo_muere() -> void:
 	Global.puntaje += 1

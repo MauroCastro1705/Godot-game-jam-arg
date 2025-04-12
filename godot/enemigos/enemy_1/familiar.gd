@@ -3,6 +3,7 @@ extends CharacterBody2D
 @export var speed = Global.enemigo_1_speed
 @onready var dmg = Global.enemyDmg
 @onready var dmgTimer = %DmgTimer
+@onready var deathSound = $SoundDeath
 var player_ref: Node = null
 
 var player
@@ -23,6 +24,7 @@ func take_damage(dmgDone):
 	if vida <= 0:
 		enemigo_muere.emit()
 		Global.efecto_muerte(self)
+		deathSound.play()
 
 func _on_enemigo_muere() -> void:
 	Global.puntaje += 1

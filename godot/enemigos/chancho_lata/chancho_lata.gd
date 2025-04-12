@@ -21,6 +21,7 @@ signal enemigo_muere
 @onready var barraVida = $ProgressBar
 @onready var sprite = $ColorRect
 @onready var col_shape = $CollisionShape2D
+@onready var deathSound = $SoundDeath
 
 func _ready():
 	player = get_node("../Player")
@@ -83,6 +84,7 @@ func take_damage(dmgDone):
 	if vidaActual <= 0:
 		enemigo_muere.emit()
 		Global.efecto_muerte(self)
+		deathSound.play()
 
 
 func _on_enemigo_muere() -> void:
