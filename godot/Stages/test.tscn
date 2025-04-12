@@ -1,8 +1,8 @@
 [gd_scene load_steps=4 format=3 uid="uid://db16jlwca6eh0"]
 
 [ext_resource type="Texture2D" uid="uid://cqiri1cddkju4" path="res://light/assets/14622749380557.560858d24a85e.png" id="1_in8a3"]
-[ext_resource type="PackedScene" uid="uid://dyuqo18jfehoc" path="res://enemigos/luz_mala/luz_mala.tscn" id="2_1mbjv"]
 [ext_resource type="PackedScene" uid="uid://dsw4i7jsr1ank" path="res://characters/player.tscn" id="2_f7aib"]
+[ext_resource type="PackedScene" uid="uid://8fdqdt6nitfv" path="res://enemigos/enemy_1/enemigo_basico.tscn" id="3_f7aib"]
 
 [node name="Node2D" type="Node2D"]
 
@@ -26,5 +26,5 @@ color = Color(0, 0, 0, 1)
 [node name="Player" parent="." instance=ExtResource("2_f7aib")]
 position = Vector2(0, -1)
 
-[node name="Enemigo1" parent="." instance=ExtResource("2_1mbjv")]
-position = Vector2(670, 131)
+[node name="pombero" parent="." instance=ExtResource("3_f7aib")]
+position = Vector2(253, 81)

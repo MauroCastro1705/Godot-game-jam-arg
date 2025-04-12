@@ -44,6 +44,7 @@ collision_layer = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="area_dmg_player"]
 position = Vector2(2, -2)
+scale = Vector2(2.18939, 2.18939)
 shape = SubResource("CircleShape2D_y4n1f")
 
 [node name="SoundDeath" type="AudioStreamPlayer" parent="."]

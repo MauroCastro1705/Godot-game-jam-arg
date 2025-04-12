@@ -19,7 +19,7 @@ var timer = 0.0
 var posicion_inicio_embestida = Vector2.ZERO # Calcula la distancia recorrida
 signal enemigo_muere
 @onready var barraVida = $ProgressBar
-@onready var sprite = $ColorRect
+@onready var sprite = $Chanchod
 @onready var col_shape = $CollisionShape2D
 @onready var deathSound = $SoundDeath
 
