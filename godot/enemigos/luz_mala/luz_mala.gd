@@ -15,6 +15,7 @@ var dmg = Global.luz_mala_dmg
 @export var max_intentos_teleport: int = 10  # Intentos máximos para encontrar posición válida
 @onready var dmgTimer = %DmgTimer
 @onready var barraVida = $ProgressBar
+@onready var deathSound = $SoundDeath
 
 var player_ref: Node = null
 var player
@@ -147,6 +148,7 @@ func take_damage(dmgDone):
 	if vidaActual <= 0:
 		enemigo_muere.emit()
 		Global.efecto_muerte(self)
+		deathSound.play()
 
 func _on_enemigo_muere() -> void:
 	Global.puntaje += 1
