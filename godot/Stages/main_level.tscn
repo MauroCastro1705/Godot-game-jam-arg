@@ -98,7 +98,6 @@ occluder = SubResource("OccluderPolygon2D_m7fka")
 occluder_light_mask = 8
 
 [node name="LightOccluder2D3" type="LightOccluder2D" parent="Map"]
-visible = false
 light_mask = 8
 visibility_layer = 8
 occluder = SubResource("OccluderPolygon2D_5pv5t")

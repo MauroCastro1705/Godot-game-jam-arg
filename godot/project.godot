@@ -10,11 +10,11 @@ config_version=5
 
 [application]
 
-config/name="Godot jam"
+config/name="Amargos y polvora"
 config/description="juego para la jam godot 2025 argentina"
 run/main_scene="uid://dv2y18ye8j7o0"
 config/features=PackedStringArray("4.4")
-config/icon="res://icon.svg"
+config/icon="res://assets/ayp-logo.png"
 
 [autoload]
 
@@ -30,7 +30,7 @@ window/stretch/aspect="keep_height"
 
 [dotnet]
 
-project/assembly_name="Godot jam"
+project/assembly_name="Amargos y polvora Jam"
 
 [editor]
 
